@@ -1,0 +1,274 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.min.edu</groupId>
+  <artifactId>Spring15_SPA</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Spring15_SPA Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <repositories>
+  	<repository>
+  		<id>local_repository</id>
+  		<name>local_repository</name>
+  		<url>file://${project.basedir}/repository</url>
+  	</repository>
+  </repositories>
+  
+  
+  <properties>
+		<org.springframework>5.3.20</org.springframework>
+		<org.aspect>1.9.21</org.aspect>
+		<slf4j>2.0.7</slf4j>
+	</properties>
+
+	<dependencies>
+	
+	<dependency>
+		<groupId>com.pkm.edu</groupId>
+		<artifactId>Spring14_Servlet_Alert</artifactId>
+		<version>1.0</version>
+	</dependency>
+		<!-- Spring Framework 관련 라이브러리 core, MVC 등  -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework}</version>
+		</dependency>
+
+		
+		<!-- logback 설정 -->
+      <dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-core</artifactId>
+	    <version>1.4.14</version>
+	</dependency>
+	<dependency>
+		 <groupId>ch.qos.logback</groupId>
+		 <artifactId>logback-classic</artifactId>
+		 <version>1.4.14</version>
+	</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j}</version>
+		</dependency>
+
+      	<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j}</version>
+         </dependency>
+         
+         <!-- JUnit 단위테스트 도구-->
+   	 <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.12</version>
+         <scope>test</scope>
+      </dependency>
+      <!-- Spring bean을 JUnit을 통한 Test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework}</version>
+			<scope>test</scope>
+			
+		</dependency>
+		<!-- javax.servlet -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>4.0.1</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- java의 String 객체를 쉽게 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+         
+	<!-- Oracle Database 서버를 접속하기위함-->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc10</artifactId>
+			<version>19.21.0.0</version>
+		</dependency>
+
+	<!-- Model의 DAO 에서 JDBC를 향상되게 사용하기 위한 Persistence Layer-->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.15</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework}</version>
+		</dependency>
+
+	<!-- myBatis의 SqlSessionFactory객체를 Bean으로 처리할 수 있도록 해줌 -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+	
+	<!-- DB접속정보인 Datasource를 만들기 위한 Properties 파일을 bean으로 사용하기 위함 -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+	<!-- @slf4j를 통한 log객체, DTO/VO와 같은 getter/setter객체를 Annotation을 사용 가능 -->	
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.30</version>
+		</dependency>
+
+	<!-- AOP처리를 위한 aspect라이브러리 -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspect}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspect}</version>
+			
+		</dependency>
+
+		
+	<!-- JSON 객체를 생성하기 위한 라이브러리-->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.10.1</version>
+		</dependency>
+
+
+	<!-- JSON객체를 생성하기 위한 라이브러리 --> 
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+
+
+	<!-- SMPT를 사용하여 mail을 보낼 수 있도록 하는 Protocol처리 가능 -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		
+	<!-- mail을 보낼때 사용되는 JavamailSender객체를 사용할 수 있도록해주는 라이브러리 -->	
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${org.springframework}</version>
+		</dependency>
+
+
+	<!-- Http를 통한 파일 업로드 필요 라이브러리 -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.11.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.5</version>
+		</dependency>
+		
+		
+		<!-- Spring taglib을 통한 JSP객체 값의 유효성 검사 -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.0.2.Final</version>
+		</dependency>
+
+
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.16.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>1.9.13</version>
+		</dependency>
+		
+		
+		
+		<!-- TODO 01_01 spring에서 Websocket과 hand shake를 위한 라이브러리 -->
+		<dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-websocket</artifactId>
+          <version>${org.springframework}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>javax.websocket</groupId>
+          <artifactId>javax.websocket-api</artifactId>
+          <version>1.1</version>
+      </dependency>
+    
+    <!-- DataSource 객체를 위한 HikariCP 라이브러리 -->  
+      <dependency>
+		<groupId>com.zaxxer</groupId>
+    	<artifactId>HikariCP</artifactId>
+   		<version>4.0.3</version>
+	  </dependency>
+
+      
+
+	</dependencies>  
+	
+
+	
+	
+  <build>
+    <finalName>Spring15_SPA</finalName>
+    <plugins>
+    	<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			 <version>3.10.1</version>
+  			 <configuration>
+  			 	<source>17</source>
+  			 	<target>17</target>
+  			 </configuration>
+  		</plugin>
+    	
+    	<plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+    		<artifactId>maven-war-plugin</artifactId>
+    		 <version>3.3.2</version>
+    	</plugin>
+    </plugins>
+  </build>
+</project>

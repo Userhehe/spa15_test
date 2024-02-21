@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pkm.edu.mapper.UserDaoImpl">
+
+ <select id="login" resultType="com.pkm.edu.vo.UserVo">
+SELECT ID, NAME, AUTH , JOINDATE 
+  	FROM USERINFO u
+  	WHERE ID=#{id} AND PASSWORD=#{password} AND ENABLED ='Y'
+</select>
+ 
+  
+  <select id="idChk">
+   SELECT COUNT(*)
+  	FROM USERINFO u 
+  	WHERE ID=#{id}
+  </select>
+  
+ <insert id="setRegist">
+ INSERT INTO (ID, PASSWORD, NAME, AUTH, ENABLED, JOINDATE)
+  VALUES(#{id},#{password},#{name},#{auth},'U','Y',SYSDATE)
+ </insert>
+  
+  
+<select id="getAllUserPage" parameterType="java.util.Map" resultType="com.pkm.edu.vo.UserVo">
+ SELECT *
+ 	FROM(
+ SELECT ID, NAME, AUTH, 
+ 		ENABLED, JOINDATE, ROW_NUMBER() OVER(ORDER BY JOINDATE) rm
+ 	FROM USERINFO u 
+ 	)
+ WHERE rm BETWEEN #{first} AND #{last}
+</select> 
+
+
+
+</mapper>
